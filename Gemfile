@@ -22,6 +22,9 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'pry-full'
   gem 'pry-rails'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :doc do
