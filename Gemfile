@@ -15,6 +15,11 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
+group :development do
+  gem 'pry-full'
+  gem 'pry-rails'
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
