@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GameDev</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <p class="flash-alert">
-  <%= flash[:alert] %>
-  </p>
-  <p class="flash-message">
-  <%= flash[:message] %>
-  </p>
+  <head>
+    <title>GameDev</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if flash[:alert] %>
+      <div class="alert alert-warning fade in ">
+        <a class="close" data-dismiss="alert" href="#"><i class="icon-remove"></i></a>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
-  <%= yield %>
+    <% if flash[:message] %>
+      <div class="alert alert-success fade in">
+        <a class="close" data-dismiss="alert" href="#"><i class="icon-remove"></i></a>
+        <%= flash[:message] %>
+      </div>
+    <% end %>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>
