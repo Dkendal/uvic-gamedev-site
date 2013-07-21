@@ -11,6 +11,7 @@ gem 'omniauth-facebook'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass-rails'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
