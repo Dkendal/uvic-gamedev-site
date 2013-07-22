@@ -7,6 +7,8 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= render 'layouts/navbar' %>
+
     <% if flash[:alert] %>
       <div class="alert alert-warning fade in ">
         <a class="close" data-dismiss="alert" href="#"><i class="icon-remove"></i></a>
@@ -21,7 +23,9 @@
       </div>
     <% end %>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
 
   </body>
 </html>
