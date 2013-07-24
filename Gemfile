@@ -27,6 +27,13 @@ group :development do
   gem 'binding_of_caller'
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
