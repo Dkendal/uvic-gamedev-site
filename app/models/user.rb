@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def admin?
+    # TODO Swap out for page permissions
+    true
+  end
 end
