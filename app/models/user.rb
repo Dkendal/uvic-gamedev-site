@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
 
   def admin?
     # TODO Swap out for page permissions
-    false
+    true
   end
 end

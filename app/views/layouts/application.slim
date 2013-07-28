@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title GameDev
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    = render 'layouts/navbar'
+    - if flash[:alert]
+      .alert.alert-warning.fade.in
+        a.close data-dismiss="alert" href="#"
+          i.icon-remove
+        = flash[:alert]
+    - if flash[:message]
+      .alert.alert-success.fade.in
+        a.close data-dismiss="alert" href="#"
+          i.icon-remove
+        = flash[:message]
+    .container-fluid
+      = yield

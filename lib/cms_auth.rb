@@ -1,6 +1,6 @@
 module CmsAuth
   def authenticate
     authenticate_user!
-    authorize_resource
+    authorize! @_action_name, self
   end
 end

@@ -10,6 +10,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'slim', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass-rails'
