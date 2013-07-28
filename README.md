@@ -11,3 +11,5 @@ Facebook omni auth is used for user authentication so make sure you set the app 
 ~ export FACEBOOK_SECRET=$your_app_secret
 ~ rails s -p 3000
 ```
+
+This site uses [Comfy Mexican Sofa](https://github.com/comfy/comfortable-mexican-sofa) as a cms, so you will need to create a new site. The cms_admin path is mounted at ``` admin\cms ```.
