@@ -5,6 +5,7 @@ gem 'thin'
 
 gem 'sqlite3'
 
+gem 'cancan'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
