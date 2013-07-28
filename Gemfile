@@ -16,6 +16,8 @@ gem 'font-awesome-sass-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'comfortable_mexican_sofa', '~> 1.9.1'
+
 gem 'jbuilder', '~> 1.2'
 gem 'uglifier', '>= 1.3.0'
 
