@@ -25,6 +25,8 @@ gem 'comfortable_mexican_sofa', '~> 1.9.1'
 gem 'jbuilder', '~> 1.2'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'pg'
+
 group :development do
   gem 'pry-full'
   gem 'pry-rails'
@@ -38,6 +40,10 @@ group :test, :development do
 
   gem 'guard-rspec'
   gem 'guard-livereload'
+end
+
+group :production do
+  gem 'unicorn'
 end
 
 group :doc do
