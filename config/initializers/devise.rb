@@ -15,7 +15,8 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
   require "omniauth-facebook"
-  config.omniauth :facebook, ENV["FACEBOOK_ID"],ENV["FACEBOOK_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_ID"],ENV["FACEBOOK_SECRET"],
+      {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}, setup: true
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

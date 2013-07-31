@@ -5,12 +5,12 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'thin'
 
-gem 'sqlite3'
-
 gem 'cancan'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'fb_graph'
 
 gem 'slim', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
