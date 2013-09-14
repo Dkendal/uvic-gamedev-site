@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 gem 'thin'
 
 gem 'cancan'
+gem 'rolify', '~> 3.2'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
