@@ -1,0 +1,10 @@
+table.table
+  thead
+    th user id
+    th name
+    th email
+    th last sign in time
+    th created on
+    th roles
+  tbody
+    = render partial: 'user', collection: @users

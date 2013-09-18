@@ -1,0 +1,9 @@
+tr
+  td = user.id
+  td = user.name
+  td = user.email
+  td = l user.last_sign_in_at, format: :long
+  td = l user.created_at, format: :long
+  td
+    - user.roles.each do |role|
+      i class='icon-remove btn' = role.name

@@ -10,13 +10,13 @@ gem 'rolify', '~> 3.2'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
 gem 'fb_graph'
 
 gem 'slim', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass-rails'
+
+gem 'font-awesome-rails'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -36,7 +36,7 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14'
   gem 'dotenv'
 
   gem 'guard-rspec'
