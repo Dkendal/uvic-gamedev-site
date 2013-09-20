@@ -1,4 +1,7 @@
-class Ability
+class Admin::Ability
+  def current_ability
+    @current_ability ||= Admin::Ability.new(current_user)
+  end
   include CanCan::Ability
 
   def initialize(user)
@@ -7,9 +10,9 @@ class Ability
     when user.has_role?( :admin )
       can :manage, :all
     when user.has_role?( :event_mod )
-      can :manage, [ :event, :venue ]
+      can :manage, [ Event, Venue ]
     else
-      can :read, :all
+      cannot :read, :all
     end
   end
 end
