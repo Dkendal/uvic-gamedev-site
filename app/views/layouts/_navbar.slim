@@ -2,7 +2,7 @@
   .navbar-inner
     .container-fluid
       ul.nav.pull-right
-        - if user_signed_in? and current_user.admin?
+        - if user_signed_in? and current_user.has_role? :admin
           li
             = link_to t(:edit_site_content), cms_admin_path
         li
