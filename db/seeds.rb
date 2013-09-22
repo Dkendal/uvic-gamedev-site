@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Cms::Site.create! identifier: 'gamedev', label: 'gamedev', hostname: 'localhost:3000'
+user = User.create! email: 'test@example.com', password: 'test12345'
+user.add_role :admin
