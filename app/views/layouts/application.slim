@@ -6,16 +6,16 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
+    #fb-root
     = render 'layouts/navbar'
-    - if flash[:alert]
-      .alert.alert-warning.fade.in
+    - flash.each do |key, msg|
+      .alert.fade.in class="alert-#{key}"
         a.close data-dismiss="alert" href="#"
           i.icon-remove
-        = flash[:alert]
-    - if flash[:message]
-      .alert.alert-success.fade.in
-        a.close data-dismiss="alert" href="#"
-          i.icon-remove
-        = flash[:message]
-    .container-fluid
-      = yield
+        = msg
+    .container
+      - if content_for? :application
+        = yield(:application)
+      - else
+        .row
+          .col-md-12 = yield

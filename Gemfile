@@ -14,7 +14,7 @@ gem 'fb_graph'
 
 gem 'slim', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
-gem 'bootstrap-sass'
+gem "bootstrap-sass-rails", "~> 3.0.0.3"
 
 gem 'font-awesome-rails'
 
