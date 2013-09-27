@@ -39,8 +39,9 @@ group :development do
 end
 
 group :test, :development do
+  gem 'dotenv-rails'
+
   gem 'rspec-rails', '~> 2.14'
-  gem 'dotenv'
 
   gem 'guard-rspec'
   gem 'guard-bundler'
