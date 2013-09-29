@@ -1,0 +1,6 @@
+- content_for :application do
+  .row-fluid
+    .span8 = yield(:events).presence || yield
+    .span4 = render partial: 'events/index'
+
+= render file: 'layouts/application'

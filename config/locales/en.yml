@@ -1,4 +1,8 @@
 en:
+  events:
+    index:
+      start_time: 'starts on '
+      end_time: 'ends on '
   layouts:
     navbar:
       edit_site_content: Edit Pages
