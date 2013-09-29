@@ -9,7 +9,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top role='navigation'
       - else
         = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }
           i.icon-user
-            = " " + current_user.name
+            = " #{current_user.try( :name )}"
       ul.dropdown-menu
         li
           = link_to t(:sign_out), destroy_user_session_path, method: :delete

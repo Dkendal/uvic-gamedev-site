@@ -1,18 +1,19 @@
-- @events ||= Event.all
+- cache do
+  - @events ||= Event.all
 
-ul.events
-  - @events.each do |event|
-    li.event
-      a href="https://www.facebook.com/#{event.identifier}"
-        h3 = event.name
-        - if event.start_time
-          time
-            = t '.start_time'
-            = l event.start_time
-        - if event.end_time
-          time
-            = t '.end_time'
-            = l event.end_time
-        p = event.description
-        p = event.location
-        p = event.venue
+  ul.events
+    - @events.each do |event|
+      li.event
+        a href="https://www.facebook.com/#{event.identifier}"
+          h3 = event.name
+          - if event.start_time
+            time
+              = t '.start_time'
+              = l event.start_time
+          - if event.end_time
+            time
+              = t '.end_time'
+              = l event.end_time
+          p = event.description
+          p = event.location
+          p = event.venue

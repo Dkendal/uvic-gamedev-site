@@ -1,11 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#Basic cms pages
+site = Cms::Site.create!(
+  identifier: 'gamedev',
+  label: 'gamedev',
+  hostname: 'localhost:3000'
+)
 
-Cms::Site.create! identifier: 'gamedev', label: 'gamedev', hostname: 'localhost:3000'
+events_layout = site.layouts.create!(
+  identifier: 'events',
+  app_layout: 'events',
+  content: "{{cms:page:content:rich_text}}"
+)
+
+events_layout.pages.create! label: 'homepage', slug: '', site: site
+
+#test user account
 user = User.create! email: 'test@example.com', password: 'test12345'
 user.add_role :admin
