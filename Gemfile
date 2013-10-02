@@ -26,12 +26,12 @@ gem 'comfortable_mexican_sofa', '~> 1.9.1'
 gem 'jbuilder', '~> 1.2'
 gem 'uglifier', '>= 1.3.0'
 
-
 group :development do
   gem 'sqlite3'
   gem 'pry-full'
   gem 'pry-rails'
 
+  gem 'meta_request'
   gem 'xray-rails'
 
   gem 'better_errors'

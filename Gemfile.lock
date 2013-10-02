@@ -42,6 +42,7 @@ GEM
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
     builder (3.1.4)
+    callsite (0.0.11)
     cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -163,6 +164,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_request (0.2.8)
+      callsite
+      rack-contrib
+      railties
     method_source (0.8.2)
     mime-types (1.25)
     mini_portile (0.5.1)
@@ -252,6 +257,8 @@ GEM
     pry-theme (0.2.0)
       json
     rack (1.5.2)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-oauth2 (1.0.5)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)
@@ -366,6 +373,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
+  meta_request
   omniauth
   omniauth-facebook
   pg
