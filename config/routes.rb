@@ -1,4 +1,6 @@
 GameDev::Application.routes.draw do
+  resources :events
+
   namespace :admin do
     resources :users, except: :new
   end

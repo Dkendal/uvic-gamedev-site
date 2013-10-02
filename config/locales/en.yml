@@ -1,9 +1,10 @@
 en:
+  time:
+    formats:
+      short: "%A, %b %d, %l:%M %p"
   edit_site_content: Edit Pages
   events:
     index:
-      start_time: 'starts on '
-      end_time: 'ends on '
   layouts:
     navbar:
       sign_in: Sign in

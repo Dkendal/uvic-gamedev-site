@@ -3,6 +3,7 @@
     .col-md-8
       = yield(:events).presence || yield
     .col-md-4
-      = render partial: 'events/index'
+      .placeholder data-load="events"
+        |loading...
 
 = render file: 'layouts/application'

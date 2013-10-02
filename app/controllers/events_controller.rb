@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
-  layout 'application'
-
+  respond_to :js
   def index
+    @events = Event.all
+    render 'index', layout: false
   end
 
   def new
