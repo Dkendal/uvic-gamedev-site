@@ -7,4 +7,4 @@ $ ->
       $events.replaceWith(data)
 
     event_xhr.fail (data) ->
-      alert data.responseText
+      console.log data.responseText
