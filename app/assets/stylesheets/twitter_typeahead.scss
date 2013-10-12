@@ -1,0 +1,17 @@
+.tt-dropdown-menu {
+  @extend .dropdown-menu
+}
+.tt-hint {
+  @extend .form-control
+}
+.tt-suggestions {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tt-suggestion.tt-is-under-cursor {
+  color: lighten(blue, 20%);
+}
+.tt-dropdown-menu,
+.twitter-typeahead {
+  width: 100%;
+}

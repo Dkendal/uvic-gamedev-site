@@ -5,6 +5,13 @@ en:
   edit_site_content: Edit Pages
   events:
     index:
+    new:
+      start-date: Start date
+      start-time: Start time
+      description: A short description about your event.
+      submit: Let's praty
+      name: Event name
+      new: New Event
   layouts:
     navbar:
       sign_in: Sign in
