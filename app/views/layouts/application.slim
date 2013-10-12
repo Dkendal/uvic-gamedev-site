@@ -7,7 +7,7 @@ html
     = csrf_meta_tags
   body
     #fb-root
-    = render 'layouts/navbar'
+    = render 'navbar'
     - flash.each do |key, msg|
       .alert.fade.in class="alert-#{key}"
         a.close data-dismiss="alert" href="#"

@@ -1,0 +1,20 @@
+nav.navbar.navbar-inverse.navbar-fixed-top role='navigation'
+  .navbar-header
+    button.navbar-toggle[data-toggle="collapse" type="button" data-target=".navbar-main"]
+      i.icon-reorder
+  .collapse.navbar-collapse.navbar-main
+    ul.nav.navbar-nav
+      li
+        = link_to t('.new_event'), [:new, :event]
+      - if user_signed_in? && current_user.has_role?( :admin )
+        li
+          = link_to t(:edit_site_content), cms_admin_path
+    ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        li
+          = link_to(t(:sign_out),
+        destroy_user_session_path, method: :delete)
+      - else
+        li
+          = link_to t(:sign_in), new_user_session_path
+
