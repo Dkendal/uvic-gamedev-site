@@ -1,6 +1,7 @@
 GameDev::Application.routes.draw do
-  resources :events
+  root to: 'home#index'
 
+  resources :events
   namespace :admin do
     resources :users, except: :new
   end

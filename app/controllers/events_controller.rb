@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  skip_authorization_check only: :index
-  load_and_authorize_resource
+  authorize_resource
+  rescue_from FbGraph::Unauthorized, with: :escalate_permisions
 
   layout 'application'
 
@@ -14,5 +14,10 @@ class EventsController < ApplicationController
   end
 
   def create
+  end
+
+  def escalate_permisions
+    session[:fb_permissions].append(*[:create_event, :manage_pages])
+    redirect_to '/auth/facebook'
   end
 end

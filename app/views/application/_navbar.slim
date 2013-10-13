@@ -4,8 +4,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top role='navigation'
       i.icon-reorder
   .collapse.navbar-collapse.navbar-main
     ul.nav.navbar-nav
-      li
-        = link_to t('.new_event'), [:new, :event]
+      li = link_to t('.home'), :root
+      li = link_to t('.new_event'), [:new, :event]
       - if user_signed_in? && current_user.has_role?( :admin )
         li
           = link_to t(:edit_site_content), cms_admin_path

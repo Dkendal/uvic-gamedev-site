@@ -6,10 +6,9 @@ class Ability
     case
     when user.has_role?( :admin )
       can :manage, :all
-    when user.has_role?( :event_mod )
-      can :manage, [ :event, :venue ]
-    else
-      can :read, :all
+    when user.persisted?
+      can :create, Event
     end
+    can :read, :all
   end
 end
