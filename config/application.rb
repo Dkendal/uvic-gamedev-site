@@ -22,5 +22,10 @@ module GameDev
 
     # autoload CmsAuth lib
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    config.generators do |g|
+      g.template_engine  :slim
+      g.test_framework  :rspec
+    end
   end
 end

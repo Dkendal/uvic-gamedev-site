@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'twitter-typeahead-rails'
 
-gem 'slim', '~> 2.0.0'
+gem 'slim-rails', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem "bootstrap-sass-rails", "~> 3.0.0.3"
 
@@ -27,7 +27,6 @@ gem 'jquery-rails'
 
 gem 'comfortable_mexican_sofa', '~> 1.9.1'
 
-gem 'jbuilder', '~> 1.2'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
