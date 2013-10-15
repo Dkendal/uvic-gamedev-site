@@ -17,9 +17,8 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
   require "omniauth-facebook"
-  config.omniauth :facebook, CLIENT_ID, CLIENT_SECRET
+  config.omniauth :facebook, CLIENT_ID, CLIENT_SECRET, setup: true
     {
-      setup: true,
       scope: 'email',
       client_options: {
         ssl: { ca_file: '/usr/lib/ssl/certs/ca-certificates.crt' }
