@@ -15,5 +15,4 @@
 /log/*.log
 /tmp
 xrayconfig.yml
-.env
 .pryrc
