@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @token.user
+p
+  strong Token:
+  = @token.token
+
+= link_to 'Edit', edit_admin_token_path(@token)
+'|
+= link_to 'Back', admin_tokens_path

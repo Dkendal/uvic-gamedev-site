@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_one :token
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
@@ -18,14 +20,9 @@ class User < ActiveRecord::Base
                         )
     end
 
+    # need to see if we ended up here from the tokens_controller
+    # if session[:token_create_state]
+
     user
-  end
-
-  def request_admin
-  end
-
-  def admin?
-    # TODO Swap out for page permissions
-    true
   end
 end

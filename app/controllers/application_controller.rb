@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception, unless: :skip_protect_from_forgery?
   check_authorization unless: :skip_authentication?
 
   def skip_authentication?
@@ -7,9 +7,17 @@ class ApplicationController < ActionController::Base
       devise_controller?
   end
 
+  def skip_protect_from_forgery?
+    false
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     if user_signed_in?
-      redirect_to :back, alert: exception.message
+      begin
+        redirect_to :back, alert: exception.message
+      rescue ActionController::RedirectBackError
+        redirect_to :root
+      end
     else
       redirect_to new_user_session_path
     end

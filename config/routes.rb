@@ -3,6 +3,7 @@ GameDev::Application.routes.draw do
 
   resources :events
   namespace :admin do
+    resources :tokens, except: [:new, :edit]
     resources :users, except: :new
   end
 

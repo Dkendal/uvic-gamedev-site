@@ -1,0 +1,17 @@
+h1 Listing tokens
+
+table.table
+  tr
+    th User
+    th Token
+    th
+
+  - @tokens.each do |token|
+    tr
+      td = token.user.name
+      td = token.token
+      td = link_to 'Destroy', [:admin, token], :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to t('.new'), [:admin, :tokens], method: :post, class: 'btn btn-primary'
