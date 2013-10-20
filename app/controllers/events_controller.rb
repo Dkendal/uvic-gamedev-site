@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
   authorize_resource
-  rescue_from FbGraph::Unauthorized, with: :escalate_permisions
-
   layout 'application'
 
   respond_to :js
@@ -11,13 +9,27 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
   end
 
   def create
+    @event = Event.new event_params
+    if @event.save
+      redirect_to @event
+    else
+      flash[:danger] = "something has gone terribly wrong!"
+      render :new
+    end
   end
 
-  def escalate_permisions
-    session[:fb_permissions].append(*[:create_event, :manage_pages])
-    redirect_to '/auth/facebook'
+  def event_params
+    params.require(:event).permit(:description,
+                                  :start_time,
+                                  :end_time,
+                                  :end_date)
+    params.require(:event).tap do |e|
+      e.require(:name)
+      e.require(:start_date)
+    end
   end
 end
