@@ -23,13 +23,18 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:description,
+    params.require(:event).permit(:name,
+                                  :start_date,
+                                  :description,
                                   :start_time,
                                   :end_time,
                                   :end_date)
     params.require(:event).tap do |e|
       e.require(:name)
       e.require(:start_date)
+      e.require(:end_date) if e[:end_time]
+      e.require(:end_time) if e[:end_date]
+      e.require(:start_time) if e[:end_date]
     end
   end
 end

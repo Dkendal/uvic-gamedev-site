@@ -4,14 +4,19 @@ en:
       short: "%A, %b %d, %l:%M %p"
   edit_site_content: Edit Pages
   events:
+    datetime_picker:
+      end_date: End date
+      end_time: End time
+      start_date: Start date
+      start_time: Start time
     index:
     new:
-      start-date: Start date
-      start-time: Start time
       description: A short description about your event.
-      submit: Let's praty
+      has_end: Has an end?
+      location: Location
       name: Event name
       new: New Event
+      submit: Let's praty
   layouts:
     navbar:
       sign_in: Sign in

@@ -1,0 +1,17 @@
+- date_attr = field + '_date'
+- time_attr = field + '_time'
+.row.datetime-picker
+  .col-sm-9
+    .form-group
+      .input-group
+        = form.input_field(date_attr.to_sym,
+          placeholder: t(".#{date_attr}"),
+          "data-behavior" => "datepicker")
+
+        span.input-group-addon: i.icon-calendar
+
+  .col-sm-3
+    = form.input(time_attr.to_sym,
+      label: false,
+      placeholder: 'Add a time?',
+      input_html: { "data-behavior" => 'timepicker' })

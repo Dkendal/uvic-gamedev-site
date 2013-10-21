@@ -9,7 +9,7 @@ for hr in [1..24]
     mi_str = String(mi * 5).lpad(2)
     times.push "#{hr}:#{mi_str}"
 $ ->
-  $('[data-behaviour~=timepicker]').typeahead {
+  $('[data-behavior~=timepicker]').typeahead {
     name: 'time',
     local: times
   }

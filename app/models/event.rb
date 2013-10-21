@@ -7,10 +7,11 @@ class Event
 
   attr_accessor(:name,
                 :description,
-                :start_time,
                 :start_date,
-                :end_time,
+                :start_time,
+                :has_end,
                 :end_date,
+                :end_time,
                 :picture,
                 :location)
 
