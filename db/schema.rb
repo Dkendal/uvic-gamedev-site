@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014015007) do
+ActiveRecord::Schema.define(version: 20131021013935) do
 
   create_table "cms_blocks", force: true do |t|
     t.integer  "page_id",                     null: false
@@ -129,6 +129,14 @@ ActiveRecord::Schema.define(version: 20131014015007) do
 
   add_index "cms_snippets", ["site_id", "identifier"], name: "index_cms_snippets_on_site_id_and_identifier", unique: true
   add_index "cms_snippets", ["site_id", "position"], name: "index_cms_snippets_on_site_id_and_position"
+
+  create_table "events", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
