@@ -2,12 +2,6 @@ class EventsController < ApplicationController
   authorize_resource
   layout 'application'
 
-  respond_to :js
-  def index
-    @events = Event.fetch
-    render 'index', layout: false
-  end
-
   def new
     @event = Event.new
   end
