@@ -1,0 +1,21 @@
+.events
+  - cache(cache_key_fb_events) do
+    - Event.fetch.each do |event|
+      .event
+        = link_to event_path(event.identifier)
+          h4.list-group-item-heading = event.name.titlecase
+        = render 'events/event_facebook_button', event: event
+        dl
+          - if event.start_time
+            dt starts at
+            dd: time = l event.start_time
+
+          - if event.end_time
+            dt ends at
+            dd: time = l event.end_time
+
+          - if event.location
+            dt location
+            dd = event.location
+
+        p = event.description

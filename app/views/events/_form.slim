@@ -1,0 +1,24 @@
+= simple_form_for(@event,
+  defaults: { input_html: { class: 'form-control' },
+  wrapper_html: { class: 'form-group' } } ) do |f|
+
+  = f.input :name, label: false, placeholder: t('.name')
+
+  = render 'datetime_picker', form: f, field: 'start'
+
+  .form-group
+    = f.input_field :has_end, class: 'btn btn-primary',
+      type: :button, value: t('.has_end')
+
+  .hidden
+    = render 'datetime_picker', form: f, field: 'end'
+
+  = f.input :location, label: false, placeholder: t('.location')
+
+  = f.input(:description,
+    as: :text,
+    label: false,
+    placeholder: t('.description'),
+    input_html: { rows: 4 })
+
+  = f.button :submit, t(".submit"), class: 'btn btn-primary'

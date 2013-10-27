@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   before_save :fb_save
 
   validates_presence_of :name, :start_date
+  alias_method :identifier, :id
 
   attr_accessor(:name,
                 :description,
@@ -16,9 +17,8 @@ class Event < ActiveRecord::Base
                 :location)
 
   def self.fetch
-    app = FbGraph::Application.new( CLIENT_ID, secret: CLIENT_SECRET)
     FbGraph::Page.new('uvicgamedev').
-      fetch(access_token: app.access_token).events
+      fetch(access_token: Token.app_token).events
   end
 
   def fb_save

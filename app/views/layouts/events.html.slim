@@ -3,5 +3,5 @@
     .col-md-8
       = yield(:events).presence || yield
     .col-md-4
-      =render file: 'events/index'
+      =render 'events'
 = render file: 'layouts/application'

@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
+  load_resource except: :create
   authorize_resource
   layout 'application'
+
+  def show
+    @event = FbGraph::Event.new(@event.id).fetch(access_token: Token.app_token)
+  end
 
   def new
     @event = Event.new
@@ -14,6 +19,14 @@ class EventsController < ApplicationController
       flash[:danger] = "something has gone terribly wrong!"
       render :new
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 
   def event_params

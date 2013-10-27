@@ -1,0 +1,20 @@
+.event
+  h1 = @event.name
+  = render 'events/event_facebook_button', event: @event
+
+  p
+    |starts at 
+    time = @event.start_time
+
+  p
+    |ends at 
+    time = @event.end_time
+
+  p location
+  p = @event.location
+
+  p = @event.description
+
+  - if current_user.has_role :admin
+    .admin-controls
+      = link_to 'edit', edit_event_path(@event.identifier)

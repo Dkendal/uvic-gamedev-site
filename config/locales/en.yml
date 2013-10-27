@@ -9,8 +9,7 @@ en:
       end_time: End time
       start_date: Start date
       start_time: Start time
-    index:
-    new:
+    form:
       description: A short description about your event.
       has_end: Has an end?
       location: Location
