@@ -54,4 +54,3 @@ $ ->
 
   $datepickers.blur ->
     @.placeholder = @.original_placeholder
-

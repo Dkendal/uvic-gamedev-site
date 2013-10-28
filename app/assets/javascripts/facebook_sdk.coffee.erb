@@ -1,0 +1,6 @@
+$ ->
+  $.ajaxSetup cache: true
+  $.getScript "//connect.facebook.net/en_UK/all.js", ->
+    FB.init
+      appId: "<%= ENV["FACEBOOK_ID"] %>"
+      channelUrl: "//LOCALHOST:3000/channel.html" #TODO change for prod
