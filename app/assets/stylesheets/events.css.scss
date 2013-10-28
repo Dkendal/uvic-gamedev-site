@@ -1,5 +1,10 @@
-.datetime-picker {
-  [class^='col'] {
-    @include transition(width 0.25s ease-out);
-  }
+.datetime-picker [class^='col'] {
+  @include transition(width 0.25s ease-out);
+}
+.loading-placeholder {
+  width: 100px;
+  height: 100px;
+
+  background: url('http://placekitten.com/100/100');
+  border-radius: 50%;
 }

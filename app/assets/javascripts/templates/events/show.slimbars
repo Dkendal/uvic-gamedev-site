@@ -1,3 +1,5 @@
+a href="/my/events/{{id}}/edit"
+  |edit
 .name
   |{{name}}
 .description

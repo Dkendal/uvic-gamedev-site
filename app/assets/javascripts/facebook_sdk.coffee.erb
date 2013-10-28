@@ -1,9 +1,34 @@
+time_str = (date) ->
+  date = new Date date
+  "#{date.getHours()}:#{date.getMinutes()}"
+
+date_str = (date) ->
+  date = new Date date
+  "#{date.getFullYear()}/#{date.getMonth()}/#{date.getDate()}"
+
+render_form = (event, $form) =>
+  $form.find("#event_name").val event.name
+  $form.find("#event_description").val event.description
+  $form.find("#event_start_date").val date_str event.start_time
+  $form.find("#event_start_time").val time_str event.start_time
+  if event.end_time
+    $form.find('#event_has_end').click()
+    $form.find("#event_end_date").val date_str event.end_time
+    $form.find("#event_end_time").val time_str event.end_time
+  $form.find("#event_location").val event.location
+
 render_events = ->
   $('[data-load="event"]').each ->
-    FB.api @.id, (event) =>
+    FB.api "#{$(@).data('eventId')}", (event) =>
+      if $(@).data("action") == "edit"
+        render_form event, $(@)
+
       if view = $(@).data "render"
         event_view = HandlebarsTemplates[view] event
-        $(@).replaceWith(event_view).removeClass 'loading'
+        $(@).replaceWith(event_view)
+
+      $(@).removeClass 'loading'
+
 $ ->
   $.ajaxSetup cache: true
   $.getScript "//connect.facebook.net/en_UK/all.js", ->

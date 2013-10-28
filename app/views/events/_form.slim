@@ -1,24 +1,31 @@
-= simple_form_for(@event,
-  defaults: { input_html: { class: 'form-control' },
-  wrapper_html: { class: 'form-group' } } ) do |f|
+- fb_load ||= false
 
-  = f.input :name, label: false, placeholder: t('.name')
+div[
+  data-event-id = @event.id
+  data-action = "edit"
+  data-load = "#{"event" if fb_load}"
+  class = "#{"loading" if fb_load}"]
+  = simple_form_for(@event,
+    defaults: { input_html: { class: 'form-control' },
+                wrapper_html: { class: 'form-group' } },) do |f|
 
-  = render 'datetime_picker', form: f, field: 'start'
+    = f.input :name, label: false, placeholder: t('.name')
 
-  .form-group
-    = f.input_field :has_end, class: 'btn btn-primary',
-      type: :button, value: t('.has_end')
+    = render 'datetime_picker', form: f, field: 'start'
 
-  .hidden
-    = render 'datetime_picker', form: f, field: 'end'
+    .form-group
+      = f.input_field :has_end, class: 'btn btn-primary',
+        type: :button, value: t('.has_end')
 
-  = f.input :location, label: false, placeholder: t('.location')
+    .hidden
+      = render 'datetime_picker', form: f, field: 'end'
 
-  = f.input(:description,
-    as: :text,
-    label: false,
-    placeholder: t('.description'),
-    input_html: { rows: 4 })
+    = f.input :location, label: false, placeholder: t('.location')
 
-  = f.button :submit, t(".submit"), class: 'btn btn-primary'
+    = f.input(:description,
+      as: :text,
+      label: false,
+      placeholder: t('.description'),
+      input_html: { rows: 4 })
+
+    = f.button :submit, t(".submit"), class: 'btn btn-primary'
