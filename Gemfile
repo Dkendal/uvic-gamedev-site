@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'twitter-typeahead-rails'
 
+gem 'handlebars_assets'
 gem 'slim-rails', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem "bootstrap-sass-rails", "~> 3.0.0.3"

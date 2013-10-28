@@ -1,6 +1,15 @@
+render_events = ->
+  $('[data-load="event"]').each ->
+    FB.api @.id, (event) =>
+      if view = $(@).data "render"
+        event_view = HandlebarsTemplates[view] event
+        $(@).replaceWith(event_view).removeClass 'loading'
 $ ->
   $.ajaxSetup cache: true
   $.getScript "//connect.facebook.net/en_UK/all.js", ->
     FB.init
-      appId: "<%= ENV["FACEBOOK_ID"] %>"
-      channelUrl: "//LOCALHOST:3000/channel.html" #TODO change for prod
+      appId: "<%= ENV["CLIENT_ID"] %>"
+      #TODO change for prod
+      channelUrl: "//LOCALHOST:3000/channel.html"
+    FB.getLoginStatus (response) ->
+      render_events() if response.status == 'connected'

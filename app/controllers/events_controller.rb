@@ -3,6 +3,10 @@ class EventsController < ApplicationController
   authorize_resource
   layout 'application'
 
+  def index
+    @events = Event.where user: current_user
+  end
+
   def show
     @event = FbGraph::Event.new(@event.id).fetch(access_token: Token.app_token)
   end

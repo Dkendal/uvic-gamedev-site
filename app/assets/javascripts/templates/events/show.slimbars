@@ -1,0 +1,12 @@
+.name
+  |{{name}}
+.description
+  |{{description}}
+.location
+  |{{location}}
+.start-time
+  time
+    |{{start_time}}
+.end-time
+  time
+    |{{end_time}}
