@@ -4,17 +4,21 @@ class Event < ActiveRecord::Base
   before_save :fb_save
 
   validates_presence_of :name, :start_date
+  validates_presence_of :end_time, if: "end_date.present?"
+
   alias_method :identifier, :id
 
-  attr_accessor(:name,
-                :description,
-                :start_date,
-                :start_time,
-                :has_end,
-                :end_date,
-                :end_time,
-                :picture,
-                :location)
+  attr_accessor(
+    :name,
+    :description,
+    :start_date,
+    :start_time,
+    :has_end,
+    :end_date,
+    :end_time,
+    :picture,
+    :location
+  )
 
   def self.fetch
     FbGraph::Page.new('uvicgamedev').

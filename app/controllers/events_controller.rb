@@ -35,21 +35,19 @@ class EventsController < ApplicationController
 
   def event_params
     params[:event][:user_id] = current_user.id
-    params.require(:event).permit(:name,
-                                  :start_date,
-                                  :description,
-                                  :location,
-                                  :start_time,
-                                  :end_time,
-                                  :user_id,
-                                  :end_date).tap do |e|
-                                    e.require(:user_id)
-                                    e.require(:name)
-                                    e.require(:start_date)
-                                    e.require(:end_date) if e[:end_time].present?
-                                    e.require(:end_time) if e[:end_date].present?
-                                    e.require(:start_time) if e[:end_date].present?
-                                    e.require(:start_time) if e[:end_date].present?
-                                  end
+    params.require(:event).permit(
+      :name,
+      :start_date,
+      :description,
+      :location,
+      :start_time,
+      :end_time,
+      :user_id,
+      :end_date).tap do |e|
+        e.require(:user_id)
+        e.require(:name)
+        e.require(:start_date)
+        e.require(:end_date) if e[:end_time].present?
+      end
   end
 end
