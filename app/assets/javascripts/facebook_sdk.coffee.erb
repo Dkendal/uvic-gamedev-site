@@ -1,11 +1,14 @@
+pad2 = (str) ->
+  _.str.lpad str, 2, '0'
+
 time_str = (date) ->
   date = new Date date
-  "#{date.getHours()}:#{date.getMinutes()}"
+  "#{pad2 date.getHours()}:#{pad2 date.getMinutes()}"
 
 date_str = (date) ->
   date = new Date date
   # fuck you js and your zero indexed months
-  "#{date.getFullYear()}/#{date.getMonth() + 1}/#{date.getDate()}"
+  "#{date.getFullYear()}/#{pad2 date.getMonth() + 1}/#{pad2 date.getDate()}"
 
 render_form = (event, $form) =>
   $form.find("#event_name").val event.name
