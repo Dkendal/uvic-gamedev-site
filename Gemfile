@@ -13,10 +13,6 @@ gem 'omniauth-facebook'
 gem 'fb_graph'
 
 gem 'simple_form'
-gem 'bootstrap-datepicker-rails'
-gem 'twitter-typeahead-rails'
-
-gem 'handlebars_assets'
 
 gem 'slim-rails', '~> 2.0.0'
 gem 'sass-rails', '~> 4.0.0'
@@ -27,6 +23,10 @@ gem 'font-awesome-rails'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'handlebars_assets'
+gem 'twitter-typeahead-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'underscore-string-rails'
 
 gem 'comfortable_mexican_sofa', '~> 1.9.1'
 

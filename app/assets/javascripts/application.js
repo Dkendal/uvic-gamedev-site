@@ -4,5 +4,6 @@
 //= require bootstrap-datepicker
 //= require twitter/typeahead
 //= require handlebars
+//= require underscore.string
 //= require_tree ./templates
 //= require_tree .
