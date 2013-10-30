@@ -29,7 +29,13 @@ class EventsController < ApplicationController
   end
 
   def update
-
+    if @event.update event_params
+      flash[:success] = t '.update/success'
+      redirect_to @event
+    else
+      flash[:success] = t '.update/failure'
+      render :edit
+    end
   end
 
   def event_params
