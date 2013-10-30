@@ -20,13 +20,12 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event
     else
-      flash[:danger] = "something has gone terribly wrong!"
+      flash[:danger] = t '.create.failure'
       render :new
     end
   end
 
   def edit
-
   end
 
   def update

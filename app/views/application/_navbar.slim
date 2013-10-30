@@ -13,10 +13,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top role='navigation'
           = link_to t(:edit_site_content), cms_admin_path
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
-        li
-          = link_to(t(:sign_out),
+        li = link_to(t('.sign_out'),
         destroy_user_session_path, method: :delete)
       - else
-        li
-          = link_to t(:sign_in), new_user_session_path
+        li = link_to t('.sign_in'), new_user_session_path
 
