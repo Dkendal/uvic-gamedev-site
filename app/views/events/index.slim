@@ -1,6 +1,8 @@
 - @events.each do |event|
-  .event[
-    data-event-id=event.id
-    data-load="event"
-    data-render="events/show"]
-    .loading-placeholder
+  .event
+    = link_to t('.edit'), [:edit, event]
+    .event-placeholder[
+      data-event-id = event.id
+      data-load="event"
+      data-render="events/show"]
+      |loading event...
