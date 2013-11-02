@@ -48,11 +48,7 @@ class EventsController < ApplicationController
       :start_time,
       :end_time,
       :user_id,
-      :end_date).tap do |e|
-        e.require(:user_id)
-        e.require(:name)
-        e.require(:start_date)
-        e.require(:end_date) if e[:end_time].present?
-      end
+      :end_date
+    )
   end
 end

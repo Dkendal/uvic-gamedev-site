@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :user
 
-  before_save :fb_save
+  before_create :fb_create
+  before_update :fb_update
 
   validates_presence_of :name, :start_date
   validates_presence_of :end_time, if: "end_date.present?"
@@ -25,7 +26,13 @@ class Event < ActiveRecord::Base
       fetch(access_token: Token.app_token).events
   end
 
-  def fb_save
+  def fb_update
+    event = FbGraph::Event.new(self.id).fetch access_token: Token.first.token
+    event.update to_hash
+    self.touch
+  end
+
+  def fb_create
     page = FbGraph::Page.new('uvicgamedev')
     page.access_token = Token.first.token
     event = page.event! to_hash
