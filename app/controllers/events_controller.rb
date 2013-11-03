@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   authorize_resource
   layout 'application'
 
+  rescue_from FbGraph::InvalidRequest, with: :event_doesnt_exist
+
   def index
     @events = Event.where user: current_user
   end
@@ -13,6 +15,12 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+  end
+
+  def destroy
+    @event.destroy
+    flash[:success] = t '.destroy/success'
+    redirect_to Event
   end
 
   def create
@@ -35,6 +43,18 @@ class EventsController < ApplicationController
     else
       flash[:success] = t '.update/failure'
       render :edit
+    end
+  end
+
+  private
+
+  def event_doesnt_exist exception
+    if exception.error_code == 100
+      @event.delete
+      flash[:error] = t '.event_doesnt_exist'
+      redirect_to Event
+    else
+      throw exception
     end
   end
 

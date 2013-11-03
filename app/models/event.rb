@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 
   before_create :fb_create
   before_update :fb_update
+  before_destroy :fb_destroy
 
   validates_presence_of :name, :start_date
   validates_presence_of :end_time, if: "end_date.present?"
@@ -26,8 +27,17 @@ class Event < ActiveRecord::Base
       fetch(access_token: Token.app_token).events
   end
 
+  def fb_find
+    FbGraph::Event.new(self.id).fetch access_token: Token.first.token
+  end
+
+  def fb_destroy
+    event = fb_find
+    event.destroy
+  end
+
   def fb_update
-    event = FbGraph::Event.new(self.id).fetch access_token: Token.first.token
+    event = fb_find
     event.update to_hash
     self.touch
   end

@@ -1,6 +1,7 @@
 - @events.each do |event|
   .event
     = link_to t('.edit'), [:edit, event]
+    = link_to t('.delete'), event, method: :delete
     .event-placeholder[
       data-event-id = event.id
       data-load="event"
