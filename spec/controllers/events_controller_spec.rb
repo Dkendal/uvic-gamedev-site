@@ -37,14 +37,24 @@ describe EventsController do
   end
 
   describe "PATCH update" do
-
   end
 
   describe "POST create" do
+    let(:event) { {
+      name: 'an event',
+      start_date: '2013/01/01'
+    }}
 
+    it "creates and event" do
+      expect { post :create, event: event }.
+        to change{ Event.count }.by 1
+    end
   end
 
   describe "DELETE destroy " do
-
+    it "destroys the event" do
+      expect { delete :destroy, id: event }.
+        to change { Event.count }.by 1
+    end
   end
 end
