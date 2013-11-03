@@ -1,14 +1,14 @@
 class Event < ActiveRecord::Base
   belongs_to :user
 
+  validates :name, :start_date, presence: true
+  validates :end_date, if: "end_time.present?", presence: true
+
+  alias_method :identifier, :id
+
   before_create :fb_create
   before_update :fb_update
   before_destroy :fb_destroy
-
-  validates_presence_of :name, :start_date
-  validates_presence_of :end_date, if: "end_time.present?"
-
-  alias_method :identifier, :id
 
   attr_accessor(
     :name,
@@ -22,22 +22,22 @@ class Event < ActiveRecord::Base
     :location
   )
 
-  def self.fetch
+  def self.fb_all
     FbGraph::Page.new('uvicgamedev').
       fetch(access_token: Token.app_token).events
   end
 
-  def fb_find
+  def fetch
     FbGraph::Event.new(self.id).fetch access_token: Token.first.token
   end
 
   def fb_destroy
-    event = fb_find
+    event = fetch
     event.destroy
   end
 
   def fb_update
-    event = fb_find
+    event = fetch
     event.update to_hash
     self.touch
   end

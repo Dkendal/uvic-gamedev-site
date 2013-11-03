@@ -1,6 +1,6 @@
 .events
   - cache(cache_key_fb_events) do
-    - Event.fetch.each do |event|
+    - Event.fb_all.each do |event|
       .event
         = link_to event_path(event.identifier)
           h4.list-group-item-heading = event.name.titlecase

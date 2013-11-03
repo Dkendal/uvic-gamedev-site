@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe EventsController do
+  before do
+    Event.any_instance.stub(:fb_create) { true }
+    Event.any_instance.stub(:fb_destroy) { true }
+    Event.any_instance.stub(:fb_update) { true }
+  end
   let(:user) { FactoryGirl.create :user }
   let(:event) { FactoryGirl.create( :event, user: user ) }
 
