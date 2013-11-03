@@ -19,17 +19,17 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    flash[:success] = t '.destroy.success'
+    flash[:success] = t '.success'
     redirect_to Event
   end
 
   def create
     @event = Event.new event_params
     if @event.save
-      flash[:success] = t '.create.success'
+      flash[:success] = t '.success'
       redirect_to @event
     else
-      flash[:danger] = t '.create.failure'
+      flash[:danger] = t '.failure'
       render :new
     end
   end
@@ -39,10 +39,10 @@ class EventsController < ApplicationController
 
   def update
     if @event.update event_params
-      flash[:success] = t '.update.success'
+      flash[:success] = t '.success'
       redirect_to @event
     else
-      flash[:danger] = t '.update.failure'
+      flash[:danger] = t '.failure'
       render :edit
     end
   end
