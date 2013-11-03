@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   before_destroy :fb_destroy
 
   validates_presence_of :name, :start_date
-  validates_presence_of :end_time, if: "end_date.present?"
+  validates_presence_of :end_date, if: "end_time.present?"
 
   alias_method :identifier, :id
 
