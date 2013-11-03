@@ -4,6 +4,15 @@ en:
       short: "%A, %b %d, %l:%M %p"
   edit_site_content: Edit Pages
   events:
+    create:
+      success: "Created event!"
+      failure: "Couldn't create event D:"
+    destroy:
+      success: "Event destroyed."
+      failure: "Couldn't destroy event D;"
+    update:
+      success: "Updated event!"
+      failure: "Couldn't update event ):"
     datetime_picker:
       end_date: End date
       end_time: End time
