@@ -3,8 +3,7 @@
 div[
   data-event-id = @event.id
   data-action = "edit"
-  data-load = "#{"event" if fb_load}"
-  class = "#{"loading" if fb_load}"]
+  data-load = "#{"event" if fb_load}"]
   = simple_form_for(@event,
     defaults: { input_html: { class: 'form-control' },
                 wrapper_html: { class: 'form-group' } },) do |f|

@@ -50,10 +50,17 @@ class EventsController < ApplicationController
   private
 
   def event_doesnt_exist exception
-    if exception.error_code == 100
+    case exception.error_code
+    when 100
+      # object doesn't exist... hopefully this is the closest thing that fb
+      # gives us to an explicity 'object doesn't exist error
       @event.delete
       flash[:error] = t '.event_doesnt_exist'
       redirect_to Event
+    when 1588016
+      # invalid attribute error, likely 'end date can't be before start date'
+      flash[:error] = exception # TODO add better error text
+      redirect_to :back
     else
       throw exception
     end
