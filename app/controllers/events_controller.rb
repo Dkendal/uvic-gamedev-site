@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new event_params
     if @event.save
-      flash[:danger] = t '.create.success'
+      flash[:success] = t '.create.success'
       redirect_to @event
     else
       flash[:danger] = t '.create.failure'
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
       flash[:success] = t '.update.success'
       redirect_to @event
     else
-      flash[:success] = t '.update.failure'
+      flash[:danger] = t '.update.failure'
       render :edit
     end
   end
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
       redirect_to Event
     when 1588016
       # invalid attribute error, likely 'end date can't be before start date'
-      flash[:error] = exception # TODO add better error text
+      flash[:danger] = exception # TODO add better error text
       redirect_to :back
     else
       throw exception
