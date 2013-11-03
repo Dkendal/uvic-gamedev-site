@@ -49,6 +49,9 @@ group :test, :development do
 
   gem 'rspec-rails', '~> 2.14'
 
+  gem 'faker'
+  gem 'factory_girl_rails'
+
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-livereload'
