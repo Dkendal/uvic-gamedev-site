@@ -3,10 +3,10 @@
 FactoryGirl.define do
   factory :event do
     user
-    start_date "2014/01/20"
-    end_date "2014/01/20"
-    start_time "12:00"
-    end_time "14:00"
+    start_date "2014/01/1"
+    end_date "2014/01/1"
+    start_time "00:00"
+    end_time "23:59"
     location "Uvic"
     description "a lil' diddy"
     name "an event"

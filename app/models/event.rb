@@ -1,8 +1,10 @@
 class Event < ActiveRecord::Base
   belongs_to :user
 
+  validates :starts, timeliness: { before: :ends }, if: :ends
   validates :name, :start_date, presence: true
   validates :end_date, if: "end_time.present?", presence: true
+
 
   alias_method :identifier, :id
 
@@ -58,26 +60,26 @@ class Event < ActiveRecord::Base
   end
 
   private
-    def parse_date date_str, time_str
-      if date_str.present?
-        datetime = DateTime.parse "#{date_str} #{time_str}"
-        if time_str.present?
-          datetime
-        else
-          datetime.to_date
-        end
-      end
+  def parse_date date_str, time_str
+    case
+    when date_str.present? && time_str.present?
+      DateTime.strptime "#{date_str} #{time_str}", "%Y/%m/%e %H:%M"
+    when date_str.present?
+      Date.strptime date_str, "%Y/%m/%e"
+    else
+      nil
     end
+  end
 
-    def to_hash
-      {
-        name: name,
-        description: description,
-        start_time: starts,
-        end_time: ends,
-        location: location,
-        picture: picture,
-        access_token: Token.first.token
-      }
-    end
+  def to_hash
+    {
+      name: name,
+      description: description,
+      start_time: starts,
+      end_time: ends,
+      location: location,
+      picture: picture,
+      access_token: Token.first.token
+    }
+  end
 end
