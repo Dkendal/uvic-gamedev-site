@@ -58,4 +58,35 @@ describe Event do
              name: '' ).to_not be_valid
     end
   end
+
+  describe ".fb_create" do
+    let!(:token) { FactoryGirl.create :token, token: '123' }
+
+    let(:page) { double }
+    let(:event) { double }
+    before do
+      FbGraph::Page.stub(:new) { page }
+      event.stub_chain(:raw_attributes, :[]).with('id') { 999 }
+      page.stub(:event!) { event }
+      page.stub :access_token=
+    end
+
+    it "is called when an event is created" do
+      page.should_receive(:event!).with(
+        access_token: '123',
+        name: 'an event',
+        start_time: Date.new(2000, 01, 01),
+        end_time: nil,
+        location: nil,
+        description: nil,
+        picture: nil
+      )
+
+      Event.create name: 'an event', start_date: '2000/01/01'
+    end
+
+    it "sets id to the returned event's id" do
+      expect(FactoryGirl.create( :event ).id).to eq 999
+    end
+  end
 end
