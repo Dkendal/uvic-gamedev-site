@@ -21,7 +21,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem "bootstrap-sass-rails", "~> 3.0.0.3"
 gem 'bourbon'
 
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
