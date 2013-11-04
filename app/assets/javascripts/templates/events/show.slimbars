@@ -1,12 +1,14 @@
-.name
+h2.name
   |{{name}}
-.description
+.time
+  .start-time
+    time
+      |{{start_time}}
+  .end-time
+    time
+      |{{end_time}}
+p
+  i.location
+    |@ {{location}}
+p.description
   |{{description}}
-.location
-  |{{location}}
-.start-time
-  time
-    |{{start_time}}
-.end-time
-  time
-    |{{end_time}}
