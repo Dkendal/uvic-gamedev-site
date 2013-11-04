@@ -1,9 +1,17 @@
 - @events.each do |event|
-  .event
-    = link_to t('.edit'), [:edit, event]
-    = link_to t('.delete'), event, method: :delete
-    .event-placeholder[
-      data-event-id = event.id
-      data-load="event"
-      data-render="events/show"]
-      |loading event...
+  .event.tile
+    .tile-top.container.text-right
+      = link_to [:edit, event], class: 'fa-stack' do
+        i.fa.fa-circle.fa-stack-2x.text-info
+        i.fa.fa-edit.fa-stack-1x.text-white
+
+      = link_to event, method: :delete, class: 'fa-stack' do
+        i.fa.fa-circle.fa-stack-2x.text-danger
+        i.fa.fa-trash-o.fa-stack-1x.text-white
+
+    .tile-body.container
+      .event-placeholder[
+        data-event-id = event.id
+        data-load="event"
+        data-render="events/show"]
+        |loading event...
